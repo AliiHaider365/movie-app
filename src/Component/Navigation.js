@@ -1,16 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Navigation({movie}) {
+
+  const history = useHistory()
   return (
     <div className="navigation-Container">
       <div className="navigation-content">
-        <Link to="/">
+        <Link onClick={()=>{ history.push('/')}}>
           <p>Home</p>
         </Link>
         <p>|</p>
         <p>{movie}</p>
-        {/* <p>movfsddddddie</p> */}
       </div>
     </div>
   );

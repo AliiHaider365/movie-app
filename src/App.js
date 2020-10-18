@@ -11,14 +11,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Navbar /> */}
+      <Navbar />
     <Router>
     <Switch>
     <Route path="/" exact component={Home} />
-    <Route path="/movie/:id" exact component={Movie} />
+    <Route path="/:id" exact component={Movie} />
     </Switch>
     </Router>
-
     </div>
   );
 }

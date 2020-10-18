@@ -3,6 +3,7 @@ import React,{useState} from 'react';
 
 // import NoImage from '../images/no_image.jpg';
 import { IMAGE_BASE_URL, POSTER_SIZE,BACKDROP_SIZE} from '../api';
+import Movie from './Movie';
 // 
 import MovieThumb from './MovieThumb';
 
@@ -12,6 +13,11 @@ const MovieInfo = ({ movie }) => {
  
   const background = `https://image.tmdb.org/t/p/w400/${movie.backdrop_path}` ;
   console.log(background)
+  console.log(movie)
+  console.log(movie.directors)
+if(!Movie){
+  return <h1>...loading</h1>
+}
   return(
   <div className='Movieinfo-outer' style={{backgroundImage:`url(${background})`}}>
     <div className="movieinfo-content">
@@ -45,12 +51,18 @@ const MovieInfo = ({ movie }) => {
             {movie.vote_average}
             </div>
           </div>
-          <div className="director">
-            {/* <h3>DIRECTOR{movie.directors.length > 1 ? 'S' : ''}</h3>
+         {movie.directors ? <div className="director">
+            <h3>DIRECTOR{movie.directors.length > 1 ? 'S' : ''}</h3>
             {movie.directors.map(element => (
               <p key={element.credit_id}>{element.name}</p>
-            ))} */}
-          </div>
+            )) }
+          </div>: ""}
+          {movie.genres ? <div className="director">
+            <h3>CATEGORIE{movie.genres.length > 1 ? 'S' : ''}</h3>
+            {movie.genres.map(element => (
+              <p key={element.id}>{element.name }</p>
+            )) }
+          </div>: ""}
         </div>
       </div>
     </div>

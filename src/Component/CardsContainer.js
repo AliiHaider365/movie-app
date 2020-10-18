@@ -45,6 +45,7 @@ function CardsContainer() {
         <>
         <Slider slider={data.movies} />
              <div class="container">
+             <h1 className="actor-header">PAPULAR</h1>
         <div class="row">
           {data.movies ? (
             data.movies.map( (data,index) => {
@@ -56,7 +57,7 @@ function CardsContainer() {
               );
             })
           ) : (
-            <h1>Loading...</h1>
+            <Spinner/>
           )}
         </div>
         {loading && <Spinner/>}

@@ -10,10 +10,10 @@ const MovieInfoBar = ({ time, budget, revenue }) => (
     <div className="movieinfobar-content">
       <div className="movieinfobar-content-col">
         <FontAwesome className="fa-time" name="clock-o" size="2x" />
-        <span className="movieinfobar-info">
-          Running time: {time}
+       {time ? <span className="movieinfobar-info">
+          Running time: {time} min
           {/* {calcTime(time)} */}
-        </span>
+        </span> : ""}
       </div>
 
       <div className="movieinfobar-content-col">

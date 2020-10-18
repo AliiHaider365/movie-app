@@ -5,8 +5,10 @@ import MovieInfoBar from "./MovieInfoBar";
 import Spinner from "./Spinner";
 import { fetchMovie } from "../api";
 import {useParams} from 'react-router-dom'
+import Actor from "./Actor";
 
 function Movie() {
+  
   const [movie, setmovie] = useState({});
   const [loading, setLoading] = useState(true);
     const {id}=useParams()
@@ -19,7 +21,7 @@ function Movie() {
   useEffect(() => {
     fetch();
   }, []);
-  if(!movie){
+  if(!movie ==null){
       return <Spinner/>
   }
   return (
@@ -31,6 +33,14 @@ function Movie() {
          budget={movie.budget}
          revenue={movie.revenue}
          />
+          <div class="container pt-5">
+          <h1 className="actor-header">ACTORS</h1>
+        <div class="row">
+        {movie.actors ? movie.actors.map(actor => (
+        <Actor key={actor.credit_id} actor={actor} />
+      )): ""}    
+        </div>
+        </div>
       </div>
   );
 }

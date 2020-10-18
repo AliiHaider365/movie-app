@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const MovieThumb = ({ image, movieId, clickable }) => (
   <div className="MovieThumb-outer">
     {/* // {clickable ? ( */}
-      <Link to={`/${movieId}`}>
+      <Link to={''}>
         <img className="clickable" src={image} alt="moviethumb" />
       </Link>
     {/* // ) : (

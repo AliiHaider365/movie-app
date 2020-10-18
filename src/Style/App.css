@@ -13,7 +13,6 @@
 
 .cards{
     width: 250px;
-   
     padding: 0%;
     margin: 1px;
     border-radius: 10px;
@@ -184,6 +183,7 @@
     font-size: 16px;
     line-height: 0;
     margin-top: 30px;
+    margin-bottom: 15px;
   }
   .movieinfo-text p {
     font-family: 'Abel', sans-serif;
@@ -289,4 +289,36 @@
     to {
       opacity: 1;
     }
+  }
+  .actor-header{
+    font-size: 2.5rem;
+    margin: 0;
+    margin-bottom: -33px;
+    margin-top: 30px;
+  }
+  .actors{
+    font-family: 'Abel', sans-serif;
+  color: #fff;
+  background: #1c1c1c;
+  border-radius: 20px;
+  padding: 5px;
+  text-align: center;
+  width: 180px;
+  }
+  .actors img {
+      display: block;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+  }
+  .actor-name {
+    display: block;
+    font-size: 18px;
+    margin: 10px 0 0 0;
+  }
+  .actor-character {
+    display: block;
+    font-size: 16px;
+    margin: 0 0 10px 0;
   }

@@ -35,24 +35,30 @@ export const fetchdata = async (nextPage) => {
 
 
 export const fetchMovie = async (movieId) => {
-  // setError(false);
-  // setLoading(true);
-
+  const error =true
+  const loading =true
   try {
     const endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
     const data = await axios.get(endpoint);
     const result = await data.data;
-    return result;
-    // const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
-    // const creditsResult = await (await fetch(creditsEndpoint)).json();
-    // const directors = creditsResult.crew.filter(
-    //   member => member.job === 'Director'
-    // );
   
+    const creditsEndpoint = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
+      const creditsResult = await (await fetch(creditsEndpoint)).json();
+      const directors = creditsResult.crew.filter(
+        member => member.job === 'Director'
+      );
+      const moviedata={
+        ...result,
+        actors: creditsResult.cast,
+        directors,
+        loading,
+        error
+      }
+      return moviedata;
   } catch (error) {
-    // setError(true);
+    error(true);
   }
-  // setLoading(false);
+  loading(false);
 }
 
 export {IMAGE_BASE_URL, POSTER_SIZE,POPULAR_BASE_URL,BACKDROP_SIZE}
